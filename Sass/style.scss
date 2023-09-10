@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+// import file to media cwery
+@import "_breakpoints.scss";
+
+// import create Custom-Scrollbars-&-Selection-color
+@import "_Custom-Scrollbars-&-Selection-color.scss";
+
+// import containerScreen
+@import "_containerScreen.scss";
+/*! start variables*/
+
+$colorNormal: #ffffff;
+$colorGlobal: #6565e7;
+$colorHeading: #4a4b5e;
+$colorSubheading: #787887;
+$colorBorder: #e7e7e9;
+$hoveColor: #f47e5a;
+
+/*! end variables*/
+/*! start Global Rules*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+:root {
+  background-image: linear-gradient(to bottom right, #af67e9, $colorGlobal);
+}
+/*! start Global Rules*/
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  @include media("<=992px") {
+    height: 140vh;
+  }
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-around;
+  max-width: max-content;
+  background-color: white;
+  border-radius: 20px;
+  margin: auto;
+  position: relative;
+  background-image: url(../images/bg-pattern-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: 600px, 48px;
+  background-position: -70% 67%;
+  @include media("<=999px") {
+    background-image: none;
+    display: block;
+  }
+  .images {
+    // border: 1px solid blue;
+    .images_deskto {
+      @include media("<=999px") {
+        display: none;
+      }
+      .hidden {
+        overflow: hidden;
+        .woman_online_deskto {
+          width: 90%;
+          margin-left: -65px;
+        }
+      }
+      .box_desktop {
+        position: absolute;
+        height: 120px;
+        left: -6%;
+        top: 45%;
+      }
+    }
+    .images_mobile {
+      display: none;
+      @include media("<=999px") {
+        display: block;
+        .woman_online_mobile {
+          position: absolute;
+          max-width: 300px;
+          top: -6%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          @include media("<=400px") {
+            top: -5%;
+          }
+        }
+        .hidden {
+          overflow: hidden;
+          .pattern_mobile {
+            position: relative;
+            top: 0%;
+            left: 6%;
+            transform: translate(50%, 0%);
+            @include media("<=576px") {
+              width: 50%;
+              transform: translate(40%, 0%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .faq {
+    display: inline-grid;
+    align-items: center;
+    justify-content: space-between;
+    justify-items: stretch;
+    align-content: space-around;
+    // border: 1px solid red;
+    padding: 64px;
+    #title {
+      margin: 0 0 20px;
+      font: {
+        size: 30px;
+        weight: 700;
+      }
+      @include media("<=440px") {
+        margin-top: 20px;
+      }
+    }
+    .text_faq {
+      border-bottom: 1px solid $colorBorder;
+      color: $colorHeading;
+      padding: 16px 0;
+      font: {
+        size: 14px;
+        weight: 400;
+      }
+      p:first-child {
+        display: flex;
+        justify-content: space-between;
+        &:hover {
+          cursor: pointer;
+          color: $hoveColor;
+        }
+        &::after {
+          content: "\f107";
+          font-family: "Font Awesome 6 Free";
+          font-weight: 600;
+          font-size: 14px;
+          padding: 0 20px 0 140px;
+          color: $hoveColor;
+          cursor: pointer;
+          // transition: transform 0.3s ease-in-out;
+          @include media("<=576px") {
+            padding: 0 20px;
+          }
+        }
+      }
+      p:last-child {
+        display: none;
+        max-width: 370px;
+        font: {
+          size: 12px;
+          weight: 400;
+        }
+      }
+    }
+    .active {
+      p:first-child {
+        font: {
+          size: 14px;
+          weight: 700;
+        }
+        &::after {
+          padding: 0 140px 0 20px;
+          transform: rotate(180deg);
+          @include media("<=576px") {
+            padding: 0 16px;
+          }
+        }
+      }
+      p:last-child {
+        display: block;
+        padding: 10px 0;
+      }
+    }
+    @include media("<=576px") {
+      padding: 30px;
+    }
+  }
+}
+
+/*! start Attribution */
+.attribution {
+  position: absolute;
+  bottom: 1rem;
+  color: $colorBorder;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 20px 0;
+  text-align: center;
+  width: -webkit-fill-available;
+  a {
+    font-size: smaller;
+    text-decoration: none;
+    color: $hoveColor;
+    text-transform: capitalize;
+    font-size: 12px;
+    font-weight: 400;
+    white-space: nowrap;
+    &:hover::after {
+      font-family: "Font Awesome 6 Free";
+      font-weight: 600;
+      content: "\f0a9";
+      font-size: 14px;
+      padding: 0 8px;
+    }
+  }
+}
+
+/*! end Attribution */
